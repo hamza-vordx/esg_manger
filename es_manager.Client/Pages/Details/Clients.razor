@@ -1,0 +1,131 @@
+﻿@page "/clients"
+
+<MudPaper Class="pa-4" Elevation="1" >
+    <!-- Page Title and Toolbar -->
+    <div class="d-flex justify-space-between align-center mb-4">
+        <MudText Typo="Typo.h5"  Color="Color.Dark">Clients</MudText>
+        <div>
+            <MudButton Variant="Variant.Outlined"  StartIcon="@Icons.Material.Filled.Upload" Color="Color.Dark" Class="mr-2">Export Data</MudButton>
+            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Download" Color="Color.Dark" Class="mr-2">Import Data</MudButton>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Success" @onclick="OpenForm">Add New Item</MudButton>
+
+        </div>
+    </div>
+
+    <!-- Search Field -->
+    <MudTextField T="string" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
+
+    <!-- Clients Table -->
+    <MudTable Items="@clients" Hover="true" Dense="false" Class="border">
+        <HeaderContent>
+            <MudTh >Name</MudTh>
+            <MudTh>VAT Number</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Address</MudTh>
+            <MudTh>CAP</MudTh>
+            <MudTh>Phone Number</MudTh>
+            <MudTh>City</MudTh>
+            <MudTh>Province</MudTh>
+            <MudTh>Nation</MudTh>
+            <MudTh>Action</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Name</MudTd>
+            <MudTd>@context.VATNumber</MudTd>
+            <MudTd>@context.Description</MudTd>
+            <MudTd>@context.Address</MudTd>
+            <MudTd>@context.CAP</MudTd>
+            <MudTd>@context.PhoneNumber</MudTd>
+            <MudTd>@context.City</MudTd>
+            <MudTd>@context.Province</MudTd>
+            <MudTd>@context.Nation</MudTd>
+            <MudTd>
+                <MudMenu>
+                    <ActivatorContent>
+                        <!-- Content that activates the menu, e.g., a button or icon -->
+                        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Primary" />
+                    </ActivatorContent>
+
+                    <ChildContent>
+                        <!-- Actual menu items inside the menu -->
+                        <MudMenuItem Icon="@Icons.Material.Outlined.RemoveRedEye">
+                            <MudText  >View</MudText>
+                        </MudMenuItem>
+                        <MudMenuItem Icon="@Icons.Material.Outlined.Edit" >
+                            <MudText >Edit</MudText>
+                        </MudMenuItem>
+                        <MudMenuItem Icon="@Icons.Material.Outlined.Delete" IconColor="Color.Error">
+                            <MudText >Delete</MudText>
+                        </MudMenuItem>
+                    </ChildContent>
+                </MudMenu>
+
+            </MudTd>
+        </RowTemplate>
+        
+    </MudTable>
+    <div class="d-flex flex-column align-end ">
+        <MudPagination Rectangular="true" Variant="Variant.Outlined" Count="30" />
+    </div>
+</MudPaper>
+
+
+<!-- Aside Sheet Form -->
+@if (IsFormOpen)
+{
+    <div class="aside-sheet">
+        <h4>Client</h4>
+        <form>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter Name" />
+            </div>
+            <div class="form-group">
+                <label>VAT Number</label>
+                <input type="text" class="form-control" placeholder="Enter VAT Number" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" placeholder="Enter Description"></textarea>
+            </div>
+            <!-- Add remaining input fields -->
+            <button type="button" class="btn btn-secondary" @onclick="CloseForm">Cancel</button>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+}
+
+@code {
+    // Example Client Data
+    private List<Client> clients = new List<Client>
+    {
+        new Client { Name="Informa SRL", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+        new Client { Name="APRA SRL", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+        new Client { Name="Microsoft", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+        new Client { Name="Apple", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+        new Client { Name="UPVAS SRL", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+        new Client { Name="Lidl", VATNumber="123", Description="Studio di sons...", Address="Via Acquasanta...", CAP="98767", PhoneNumber="356", City="Roma", Province="RM", Nation="Italia" },
+    };
+    
+    private bool IsFormOpen = false;
+    private bool IsDropdownOpen = false;
+
+    private void OpenForm() => IsFormOpen = true;
+    private void CloseForm() => IsFormOpen = false;
+
+    private void ToggleDropdown() => IsDropdownOpen = !IsDropdownOpen;
+
+    // Client Model
+    public class Client
+    {
+        public string Name { get; set; } = string.Empty;
+        public string VATNumber { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string CAP { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public string Province { get; set; } = string.Empty;
+        public string Nation { get; set; } = string.Empty;
+    }
+}

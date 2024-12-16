@@ -1,0 +1,141 @@
+﻿.mud-nav-link {
+    color: #FFFFFF; /* White text for navigation links */
+    font-size: 14px; /* Adjust font size */
+}
+
+.mud-drawer {
+    background-color: #007F66; /* Green color for the drawer background */
+}
+.mud-paper {
+    background-color: #ffffff; /* Green color for the drawer background */
+}
+
+.mud-table  {
+    background-color: #ffffff; /* Green color for the drawer background */
+}
+
+.mud-table thead th {
+    font-family: Inter, sans-serif !important; 
+    color: #000000 !important; 
+    background-color: #FFFFFF ; 
+    font-weight: bold !important; 
+    text-align: left !important; 
+    padding: 8px !important; 
+}
+
+.mud-table tbody td {
+    font-family: Inter, sans-serif !important; 
+    color: #000000 !important; 
+    background-color: #FFFFFF !important; 
+    text-align: left !important; 
+    padding: 8px !important; 
+}
+
+.mud-pagination {
+    
+    margin-top: 16px; /* Adjust the value to increase or decrease spacing */
+}
+
+.mud-text {
+    font-family: Inter, serif !important;
+    color: #000000 !important;
+    background-color: #FFFFFF ;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+
+
+
+
+.mud-nav-group .mud-nav-link {
+    padding-left: 20px; /* Indent links under groups */
+}
+
+.mud-appbar {
+    background-color: #007F66; /* Custom green color */
+}
+
+.mud-icon-button {
+    margin-right: 8px;
+}
+
+.mud-icon-button {
+    margin-left: 8px;
+}
+
+.border {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+
+
+.clients-container {
+    padding: 20px;
+}
+
+
+
+.actions {
+    margin-bottom: 10px;
+}
+
+.search-box {
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+}
+
+.aside-sheet {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1050;
+}
+.client-page {
+    background-color: #f5f5f5; /* Light gray background */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Optional: Center content horizontally */
+    align-items: center; /* Optional: Center content vertically */
+    padding: 16px; /* Optional: Add spacing around the page */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* This sets the background for the entire app */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Apply black text and icon color for the MudButton */
+/* Ensure MudButton text color is black */
+
+/* Ensure MudButton icon color is black */
+.mud-button.mud-outlined.mud-button-default {
+    color: #000000 !important; /* Text color */
+    border-color: #000000 !important; /* Border color */
+}
+
+/* Override the color of the icon in the MudButton */
+.mud-button.mud-outlined.mud-button-default .mud-button-start-icon,
+.mud-button.mud-outlined.mud-button-default .mud-button-end-icon {
+    color: #000000 !important; /* Icon color */
+}
